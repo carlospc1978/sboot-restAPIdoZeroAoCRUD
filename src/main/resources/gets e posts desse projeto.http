@@ -1,0 +1,25 @@
+
+
+###
+GET http://localhost:8080/carros
+
+###
+GET http://localhost:8080/carros/2
+
+###
+POST http://localhost:8080/carros
+Content-Type: application/json
+
+{
+  "marca": "fiat",
+  "modelo": "palio",
+  "ano": 2020
+}
+
+###
+DELETE http://localhost:8080/carros/1
+
+<> 2022-02-12T145050.200.json
+<> 2022-02-12T143725.200.json
+<> 2022-02-12T143632.200.json
+<> 2022-02-12T143627.200.json
