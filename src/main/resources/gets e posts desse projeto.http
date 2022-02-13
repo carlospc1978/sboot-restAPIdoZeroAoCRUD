@@ -1,25 +1,20 @@
 
 
 ###
-GET http://localhost:8080/carros
+GET http://localhost:8080/book
 
 ###
-GET http://localhost:8080/carros/2
+GET http://localhost:8080/book/2
 
 ###
-POST http://localhost:8080/carros
+POST http://localhost:8080/book
 Content-Type: application/json
 
 {
-  "marca": "fiat",
-  "modelo": "palio",
-  "ano": 2020
+  "nomeDoLivro": "Livro de Java Avançado II",
+  "autorDoLivro": "Carlos Pijanowski Cartaxo",
+  "ano": 2010
 }
 
 ###
-DELETE http://localhost:8080/carros/1
-
-<> 2022-02-12T145050.200.json
-<> 2022-02-12T143725.200.json
-<> 2022-02-12T143632.200.json
-<> 2022-02-12T143627.200.json
+DELETE http://localhost:8080/book/1

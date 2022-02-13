@@ -2,12 +2,7 @@
 
 ### Entenda o projeto
 
-O objetivo desse projeto é testar uma implementação com banco de dados de forma simples e objetiva.
-As anotações auxiliam o melhor entendimento.
-
-Para um melhor entendimento, lei a documentação:
-
-* o o
+O objetivo desse projeto é testar uma implementação com banco de dados H2.
 
 
 ### Ordem cronológica do projeto
@@ -16,7 +11,7 @@ Para um melhor entendimento, lei a documentação:
 - devtools
 - start web
 - lombok
-- hs
+- h2
 - jpa
 
 2 - no application.properties do projeto, implementar os códigos

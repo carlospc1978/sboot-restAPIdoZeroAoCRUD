@@ -9,14 +9,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_carros")
-public class Carro {
+@Table(name = "tb_books")
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String marca;
-    private String modelo;
+    private String nomeDoLivro;
+    private String autorDoLivro;
     private Integer ano;
 
 }
