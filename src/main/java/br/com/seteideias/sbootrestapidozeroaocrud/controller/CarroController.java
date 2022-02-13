@@ -1,6 +1,6 @@
 package br.com.seteideias.sbootrestapidozeroaocrud.controller;
 
-import br.com.seteideias.sbootrestapidozeroaocrud.entity.Carros;
+import br.com.seteideias.sbootrestapidozeroaocrud.entity.Carro;
 import br.com.seteideias.sbootrestapidozeroaocrud.repository.CarroRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,22 +14,22 @@ public class CarroController {
 
     CarroRepository carroRepository;
 
-    @GetMapping("/carros")
-    public List<Carros> getTodosOsCarros(){
+    @GetMapping("/carro")
+    public List<Carro> getTodosOsCarros(){
         return carroRepository.findAll();
     }
 
-    @GetMapping("/carros/{id}")
-    public Optional<Carros> getCarroPelaId(@PathVariable Long id) {
+    @GetMapping("/carro/{id}")
+    public Optional<Carro> getCarroPelaId(@PathVariable Long id) {
         return carroRepository.findById(id);
     }
 
-    @PostMapping("/carros")
-    public Carros salvarUmNovoCarro(@RequestBody Carros carros){
+    @PostMapping("/carro")
+    public Carro salvarUmNovoCarro(@RequestBody Carro carros){
         return carroRepository.save(carros);
     }
 
-    @DeleteMapping("/carros/{id}")
+    @DeleteMapping("/carro/{id}")
     public void deletarUmCarroPelaID(@PathVariable Long id){
         carroRepository.deleteById(id);
     }

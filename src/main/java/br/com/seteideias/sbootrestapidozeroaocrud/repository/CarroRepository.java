@@ -1,7 +1,7 @@
 package br.com.seteideias.sbootrestapidozeroaocrud.repository;
 
-import br.com.seteideias.sbootrestapidozeroaocrud.entity.Carros;
+import br.com.seteideias.sbootrestapidozeroaocrud.entity.Carro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CarroRepository extends JpaRepository<Carros,Long> {
+public interface CarroRepository extends JpaRepository<Carro,Long> {
 }

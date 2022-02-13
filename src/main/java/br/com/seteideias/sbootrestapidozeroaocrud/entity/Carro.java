@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_carros")
-public class Carros {
+public class Carro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
