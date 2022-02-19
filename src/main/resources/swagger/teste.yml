@@ -1,0 +1,186 @@
+swagger: "2.0"
+info:
+  description: "Serviço responsável por recuperar a lista de cartões do Banco SqlServer"
+  version: 1.0.0
+  title: "Listar Cartões Backend Service"
+host: "sboot-cart-base-atom-lista-cartoes.app.bvnet.bv"
+basePath: /v1
+
+schemes:
+  - "https"
+paths:
+  /cartoes:
+    get:
+      tags:
+        - "Listar Cartoes"
+      operationId: "listarCartoes"
+      produces:
+        - "application/json"
+      parameters:
+        - in: header
+          name: cnpjEmpresaRelacionada
+          description: Cnpj Empresa Relacionada
+          type: string
+        - in: query
+          name: ultimo-correlativo
+          type: boolean
+        - in: query
+          name: ativo
+          type: boolean
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/ListaCartoesResponse"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+        "422":
+          description: "Business Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - OAuth2: []
+  /cartoes/conta/{conta}/produto/{produto}:
+    get:
+      tags:
+        - "Listar Cartoes Por Conta e Produto"
+      operationId: "listarCartoesPorContaProduto"
+      produces:
+        - "application/json"
+      parameters:
+        - in: path
+          name: conta
+          type: integer
+          required: true
+        - in: path
+          name: produto
+          type: integer
+          required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/ListaCartoesResponse"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+        "422":
+          description: "Business Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - OAuth2: []
+  /cartoes/bloqueados:
+    get:
+      tags:
+        - "Lista Cartoes Bloqueados"
+      operationId: "listarCartoesBloqueados"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/ListaCartoesBloquadosResponse"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+        "422":
+          description: "Business Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - OAuth2: []
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    flow: password
+    tokenUrl: 'https://api-digitaldes.bancovotorantim.com.br/openid/connect/jwks.json'
+    scopes: {}
+definitions:
+  Erro:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        example: 20
+      correlationId:
+        type: "string"
+        example: "11b31a66-76d1-3a20-9dac-6db59996d5b3"
+      message:
+        type: "string"
+        example: "erro de validacao"
+  ListaCartoesBloquadosResponse:
+    type: "object"
+    properties:
+      listaConta:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/Conta'
+  ListaCartoesResponse:
+    type: "object"
+    properties:
+      listaCartao:
+        type: array
+        items:
+          $ref: '#/definitions/Cartao'
+  Cartao:
+    type: object
+    properties:
+      documento:
+        $ref: '#/definitions/Documento'
+  Documento:
+    type: object
+    properties:
+      codigo:
+        type: integer
+      numero:
+        type: string
+      descricao:
+        type: string
+  Conta:
+    type: object
+    properties:
+      numeroConta:
+        type: string
+      cartoes:
+        type: array
+        items:
+          $ref: '#/definitions/CartaoBloqueado'
+  CartaoBloqueado:
+    type: object
+    properties:
+      tipoDocumento:
+        type: integer
+      numeroCpf:
+        type: string
+      codigoProduto:
+        type: integer
+      tipoCartao:
+        type: integer
+      ultimosQuatroDigitosCartao:
+        type: string
+      indicadorTitularidade:
+        type: string
+      nomeEmbossing:
+        type: string
+      valorLimite:
+        type: "number"
+        format: bigdecimal
