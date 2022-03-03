@@ -5,6 +5,7 @@ import br.com.seteideias.sbootrestapidozeroaocrud.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 
 @RestController(value = "")
@@ -20,13 +21,13 @@ public class BookController {
 //    }
 
     @GetMapping("/list")
-    public ModelAndView getList2(){
+    public ModelAndView getList2() {
         ModelAndView mv = new ModelAndView("index");
         return mv;
     }
 
     @GetMapping("/book")
-    public List<Book> getTodosOsLivros(){
+    public List<Book> getTodosOsLivros() {
         return bookRepository.findAll();
     }
 
@@ -35,16 +36,15 @@ public class BookController {
         return bookRepository.findById(id).stream().toList();
     }
 
-    @PostMapping("/book")
-    public Book saveNewBook(@RequestBody Book book){
+    @PostMapping("/book/cadastro")
+    public Book saveNewBook(@RequestBody Book book) {
         return bookRepository.save(book);
     }
 
     @DeleteMapping("/book/{id}")
-    public void deletaBookByID(@PathVariable Long id){
+    public void deletaBookByID(@PathVariable Long id) {
         bookRepository.deleteById(id);
     }
-
 
 
 }
