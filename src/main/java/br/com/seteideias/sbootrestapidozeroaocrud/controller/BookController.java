@@ -6,30 +6,41 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@RestController(value = "")
+@RestController(value = "/")
 @AllArgsConstructor
 public class BookController {
 
-    BookRepository bookRepository;
-
-// push
-//    @GetMapping("/")
-//    public String getList(){
-//        String mv = "ola";
-//        return mv;
-//    }
-
-    @GetMapping("/list")
-    public ModelAndView getList2() {
-        ModelAndView mv = new ModelAndView("index");
-        return mv;
+    @GetMapping("/oi")
+    public String oi(){
+        return "oi";
     }
 
-    @GetMapping("/book")
+    BookRepository bookRepository;
+
+    @GetMapping(path = "/list")
     public List<Book> getTodosOsLivros() {
-        return bookRepository.findAll();
+
+        Book book = new Book();
+        book.setId(1L);
+        book.setAno(2000);
+        book.setAutorDoLivro("Carlos");
+        book.setNomeDoLivro("nome do livro");
+
+        Book book1 = new Book();
+        book.setId(2L);
+        book.setAno(2000);
+        book.setAutorDoLivro("Carlos");
+        book.setNomeDoLivro("nome do livro");
+
+        List<Book> listaDeLivros = new ArrayList<>();
+        listaDeLivros.add(book);
+        listaDeLivros.add(book1);
+
+        return listaDeLivros;
+//        return bookRepository.findAll();
     }
 
     @GetMapping("/book/{id}")

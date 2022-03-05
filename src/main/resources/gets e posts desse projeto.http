@@ -1,20 +1,17 @@
 
 
-###
-GET http://localhost:8080/book
+### pegar livros cadastrados
+GET http://localhost:8080/list
 
 ###
-GET http://localhost:8080/book/2
+GET http://localhost:8080/book/1
 
 ###
-POST http://localhost:8080/book
+POST http://localhost:8080/book/cadastro
 Content-Type: application/json
 
 {
-  "nomeDoLivro": "Livro de Java Avançado II",
-  "autorDoLivro": "Carlos Pijanowski Cartaxo",
-  "ano": 2010
+  "nomeDoLivro": "content",
+  "autorDoLivro": "content",
+  "ano": 2000
 }
-
-###
-DELETE http://localhost:8080/book/1
