@@ -12,12 +12,12 @@ public class SpringClient {
 
     public static void main(String[] args) {
 
-        ResponseEntity<Object> exchange = new RestTemplate().exchange("http://localhost:8080/book/1", HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {
-                });
-//        Book forObject = new RestTemplate().getForObject("http://localhost:8080/book/1", Book.class);
-        log.info("Retorno -> {}", exchange);
+//        ResponseEntity<Object> exchange = new RestTemplate().exchange("http://localhost:8080/book/1", HttpMethod.GET,
+//                null,
+//                new ParameterizedTypeReference<>() {
+//                });
+////        Book forObject = new RestTemplate().getForObject("http://localhost:8080/book/1", Book.class);
+//        log.info("Retorno -> {}", exchange);
 
     }
 

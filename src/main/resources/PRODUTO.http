@@ -1,17 +1,14 @@
 
 
-### pegar livros cadastrados
-GET http://localhost:8080/list
-
 ###
-GET http://localhost:8080/book/1
+GET http://localhost:8080/produto
 
-###
-POST http://localhost:8080/book/cadastro
+### cadastrar um produto
+POST http://localhost:8080/produto/add
 Content-Type: application/json
 
 {
-  "nomeDoLivro": "content",
-  "autorDoLivro": "content",
-  "ano": 2000
+  "id" : 1,
+  "nome" : "produto",
+  "quantidade" : 1
 }

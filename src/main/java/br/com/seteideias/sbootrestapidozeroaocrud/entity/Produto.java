@@ -6,6 +6,7 @@ import lombok.Data;
 public class Produto {
 
     //#region Atributos do produto
+    Long id;
     String nome;
     Integer quantidade;
     //#endregion

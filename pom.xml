@@ -68,48 +68,67 @@
 
     <build>
         <plugins>
+
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <source>1.8</source> <!-- depending on your project -->
+                    <target>1.8</target> <!-- depending on your project -->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        <!-- other annotation processors -->
+                    </annotationProcessorPaths>
                 </configuration>
-
-                <executions>
-                    <execution>
-                        <id>generate-consumer-api-code-lista-cartoes</id>
-                        <phase>generate-resources</phase>
-                        <!--                            <goals>-->
-                        <!--                                <goal>generate</goal>-->
-                        <!--                            </goals>-->
-                        <configuration>
-                            <inputSpec>src/main/resources/swagger/teste.yml</inputSpec>
-                            <language>java</language>
-                            <library>resttemplate</library>
-                            <modelPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation.representation
-                            </modelPackage>
-                            <apiPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation</apiPackage>
-                            <invokerPackage>br.com.votorantim.cart.base.client.lista-cartoes</invokerPackage>
-                            <generateSupportingFiles>true</generateSupportingFiles>
-                            <generateApiTests>false</generateApiTests>
-                            <configOptions>
-                                <dateLibrary>java8</dateLibrary>
-                            </configOptions>
-                            <environmentVariables>
-                                <supportingFiles>
-                                    ApiClient.java,Authentication.java,OAuth.java,ApiKeyAuth.java,HttpBasicAuth.java,RFC3339DateFormat.java
-                                </supportingFiles>
-                            </environmentVariables>
-                        </configuration>
-                    </execution>
-                </executions>
-
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <excludes>-->
+<!--                        <exclude>-->
+<!--                            <groupId>org.projectlombok</groupId>-->
+<!--                            <artifactId>lombok</artifactId>-->
+<!--                        </exclude>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
+
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generate-consumer-api-code-lista-cartoes</id>-->
+<!--                        <phase>generate-resources</phase>-->
+<!--                        &lt;!&ndash;                            <goals>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                                <goal>generate</goal>&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            </goals>&ndash;&gt;-->
+<!--                        <configuration>-->
+<!--                            <inputSpec>src/main/resources/swagger/teste.yml</inputSpec>-->
+<!--                            <language>java</language>-->
+<!--                            <library>resttemplate</library>-->
+<!--                            <modelPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation.representation-->
+<!--                            </modelPackage>-->
+<!--                            <apiPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation</apiPackage>-->
+<!--                            <invokerPackage>br.com.votorantim.cart.base.client.lista-cartoes</invokerPackage>-->
+<!--                            <generateSupportingFiles>true</generateSupportingFiles>-->
+<!--                            <generateApiTests>false</generateApiTests>-->
+<!--                            <configOptions>-->
+<!--                                <dateLibrary>java8</dateLibrary>-->
+<!--                            </configOptions>-->
+<!--                            <environmentVariables>-->
+<!--                                <supportingFiles>-->
+<!--                                    ApiClient.java,Authentication.java,OAuth.java,ApiKeyAuth.java,HttpBasicAuth.java,RFC3339DateFormat.java-->
+<!--                                </supportingFiles>-->
+<!--                            </environmentVariables>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+
+<!--            </plugin>-->
 
 
         </plugins>

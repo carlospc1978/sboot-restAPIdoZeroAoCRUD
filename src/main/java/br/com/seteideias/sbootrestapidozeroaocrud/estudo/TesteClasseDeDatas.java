@@ -18,7 +18,7 @@ public class TesteClasseDeDatas {
 //        String s = dateUtil.dataTimeRetorno(LocalDateTime.now());
 //        log.info("data -> "+s);
 
-        log.info("data -> "+teste());
+//        log.info("data -> "+teste());
 
     }
 

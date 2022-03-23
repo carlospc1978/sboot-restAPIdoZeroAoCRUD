@@ -18,11 +18,11 @@ public class Estudo {
         HttpEntity<String> objectHttpEntity = new HttpEntity<>(headers);
 
         //@formatter:off
-        ResponseEntity<Object> exchange = new RestTemplate().exchange(
-                "https://api.intelipost.com.br/api/v1/shipment_order/" + orderNumber,
-                HttpMethod.GET,
-                objectHttpEntity,
-                new ParameterizedTypeReference<>() { });
+//        ResponseEntity<Object> exchange = new RestTemplate().exchange(
+//                "https://api.intelipost.com.br/api/v1/shipment_order/" + orderNumber,
+//                HttpMethod.GET,
+//                objectHttpEntity,
+//                new ParameterizedTypeReference<>() { });
         //@formatter:on
 
 

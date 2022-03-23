@@ -25,4 +25,9 @@ public class ProdutoController {
         return produtoService.buscarTodosOsProdutos();
     }
 
+    @GetMapping(value = "/origem")
+    public String retornaValor(){
+        return "oooi";
+    }
+
 }
