@@ -29,27 +29,23 @@ public class ProdutoRepository {
      * @return
      */
     public Optional<Produto> obterPorID(Integer id) {
-        return produtos
-                .stream()
-                .findFirst();
+        return produtos.stream().findFirst();
     }
 
-    public Produto adicionar(Produto produto){
+    public Produto adicionar(Produto produto) {
         ultimoID++;
         produto.setId(ultimoID);
         produtos.add(produto);
         return produto;
     }
 
-    void deletar(Integer id){
-        produtos.removeIf(produto -> produto.getId()==id);
+    void deletar(Integer id) {
+        produtos.removeIf(produto -> produto.getId() == id);
     }
 
-    void atualizar(Integer id){
+    void atualizar(Integer id) {
 
         Optional<Produto> produto = obterPorID(id);
-
-
 
 
     }

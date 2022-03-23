@@ -2,7 +2,6 @@ package br.com.seteideias.sbootrestapidozeroaocrud.service;
 
 import br.com.seteideias.sbootrestapidozeroaocrud.entity.Produto;
 import br.com.seteideias.sbootrestapidozeroaocrud.repository.ProdutoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

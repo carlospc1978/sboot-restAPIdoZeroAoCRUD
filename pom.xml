@@ -17,6 +17,7 @@
     <description>sboot-restAPIdoZeroAoCRUD</description>
     <properties>
         <java.version>17</java.version>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
     </properties>
     <dependencies>
         <dependency>
@@ -26,6 +27,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
         </dependency>
 
         <dependency>
@@ -59,8 +66,6 @@
     </dependencies>
 
 
-
-
     <build>
         <plugins>
             <plugin>
@@ -76,30 +81,33 @@
                 </configuration>
 
                 <executions>
-                        <execution>
-                            <id>generate-consumer-api-code-lista-cartoes</id>
-                            <phase>generate-resources</phase>
-<!--                            <goals>-->
-<!--                                <goal>generate</goal>-->
-<!--                            </goals>-->
-                            <configuration>
-                                <inputSpec>src/main/resources/swagger/teste.yml</inputSpec>
-                                <language>java</language>
-                                <library>resttemplate</library>
-                                <modelPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation.representation</modelPackage>
-                                <apiPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation</apiPackage>
-                                <invokerPackage>br.com.votorantim.cart.base.client.lista-cartoes</invokerPackage>
-                                <generateSupportingFiles>true</generateSupportingFiles>
-                                <generateApiTests>false</generateApiTests>
-                                <configOptions>
-                                    <dateLibrary>java8</dateLibrary>
-                                </configOptions>
-                                <environmentVariables>
-                                    <supportingFiles>ApiClient.java,Authentication.java,OAuth.java,ApiKeyAuth.java,HttpBasicAuth.java,RFC3339DateFormat.java</supportingFiles>
-                                </environmentVariables>
-                            </configuration>
-                        </execution>
-                    </executions>
+                    <execution>
+                        <id>generate-consumer-api-code-lista-cartoes</id>
+                        <phase>generate-resources</phase>
+                        <!--                            <goals>-->
+                        <!--                                <goal>generate</goal>-->
+                        <!--                            </goals>-->
+                        <configuration>
+                            <inputSpec>src/main/resources/swagger/teste.yml</inputSpec>
+                            <language>java</language>
+                            <library>resttemplate</library>
+                            <modelPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation.representation
+                            </modelPackage>
+                            <apiPackage>br.com.votorantim.cart.base.client.lista-cartoes.presentation</apiPackage>
+                            <invokerPackage>br.com.votorantim.cart.base.client.lista-cartoes</invokerPackage>
+                            <generateSupportingFiles>true</generateSupportingFiles>
+                            <generateApiTests>false</generateApiTests>
+                            <configOptions>
+                                <dateLibrary>java8</dateLibrary>
+                            </configOptions>
+                            <environmentVariables>
+                                <supportingFiles>
+                                    ApiClient.java,Authentication.java,OAuth.java,ApiKeyAuth.java,HttpBasicAuth.java,RFC3339DateFormat.java
+                                </supportingFiles>
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                </executions>
 
             </plugin>
 
@@ -107,9 +115,7 @@
         </plugins>
 
 
-
     </build>
-
 
 
 </project>
